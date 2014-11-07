@@ -48,19 +48,22 @@ class MyApp:
                 # Add in boundary detection
 		global oval
 		global drawpad
-		drawpad.move(oval,-10, 0)
 		global drawpadwidth
 		global drawpadheight
-	   
+	        x1, y1, x2, y2 = drawpad.coords(oval)
+	        if x1 > 0:
+	            drawpad.move(oval,-10, 0)
+	        
 	# Add the button2Click method
 	
 	def button2Click(self, event):
 	       global oval
-	       global drawpad
-	       drawpad.move(oval,10, 0)
+	       global drawpad  
 	       global drawpadwidth
 	       global drawpadheight
-	       
+	       x1, y1, x2, y2 = drawpad.coords(oval)
+	       if x2 < 480:
+	            drawpad.move(oval,10, 0)
 myapp = MyApp(root)
 
 root.mainloop()
